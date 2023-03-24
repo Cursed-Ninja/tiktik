@@ -23,10 +23,12 @@ const Upload = () => {
   const { userProfile }: { userProfile: any } = useAuthStore();
   const router = useRouter();
   const uploadVideo = async (e: any) => {
+    console.log("here");
     setIsLoading(true);
     setWrongFileType(false);
     const selectedFile = e.target.files[0];
-    const fileTypes = ["videp/mp4", "video/webm", "video/ogg"];
+    const fileTypes = ["video/mp4", "video/webm", "video/ogg"];
+    console.log(selectedFile.type);
     if (!fileTypes.includes(selectedFile.type)) {
       setIsLoading(false);
       setWrongFileType(true);
